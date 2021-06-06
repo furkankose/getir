@@ -1,10 +1,16 @@
 const express = require('express');
+const recordRoute = require('./record.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
 const router = express.Router();
 
-const defaultRoutes = [];
+const defaultRoutes = [
+  {
+    path: '/records',
+    route: recordRoute,
+  },
+];
 
 const devRoutes = [
   // routes available only in development mode
