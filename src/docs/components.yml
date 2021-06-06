@@ -11,7 +11,8 @@ components:
           type: string
         counts:
           type: array
-          items: number
+          items:
+            type: integer
     AggregatedRecord:
       type: object
       properties:
