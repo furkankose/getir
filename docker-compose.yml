@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  getir:
+    build: .
+    image: getir
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/getir
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb-seed
+    volumes:
+      - .:/usr/src/getir
+    networks:
+      - getir
+
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - getir
+
+  mongodb-seed:
+    build: ./db
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/getir
+    networks:
+      - getir
+    depends_on:
+      - mongodb
+
+volumes:
+  dbdata:
+
+networks:
+  getir:
+    driver: bridge

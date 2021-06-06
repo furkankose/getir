@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  getir:
+    container_name: getir-test
+    command: yarn test
