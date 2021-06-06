@@ -1,5 +1,26 @@
 components:
   schemas:
+    Record:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        createdAt:
+          type: string
+        counts:
+          type: array
+          items: number
+    AggregatedRecord:
+      type: object
+      properties:
+        key:
+          type: string
+        createdAt:
+          type: string
+        totalCount:
+          type: number
     Error:
       type: object
       properties:
